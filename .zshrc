@@ -5,6 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+
 # If you come from bash you might have to change your $PATH.
 export PATH=/opt/homebrew/opt/python@3.10/bin:$HOME/bin:/usr/local/bin:$PATH:$HOME/Library/Python/3.8/bin
 export EDITOR=/opt/homebrew/bin/nvim
@@ -127,3 +128,12 @@ if [ -f '/Users/lavranssagen/google-cloud-sdk/completion.zsh.inc' ]; then . '/Us
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+eval "$(rbenv init -)"
+
+#android development$
+export ANDROID_HOME=~/Library/Android/sdk
+export ANDROID_SDK_ROOT=~/Library/Android/sdk
+export PATH=$PATH:~/Library/Android/sdk
+export PATH=$PATH:~/Library/Android/sdk/platform-tools
+export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/Contents/Home

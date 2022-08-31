@@ -15,6 +15,7 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 call plug#end()
 lua require('Comment').setup()
 nnoremap <silent> ƒ :Files<CR>
@@ -31,7 +32,27 @@ nnoremap <silent> <leader>rg :Rg<CR>
 nnoremap <silent> <leader>c :noh<CR>
 
 set termguicolors
-colorscheme nightfly 
+
+let g:catppuccin_flavour = "mocha" " latte, frappe, macchiato, mocha
+
+lua << EOF
+require("catppuccin").setup()
+EOF
+
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+EOF
+
+colorscheme catppuccin
 
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
